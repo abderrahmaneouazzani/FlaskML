@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/flaskml_style.css') }}">
+</head>
+
+<body>
+ <div class="login">
+	<h1>Player career prediction</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="GP" placeholder="Games played" required="required" />
+    	<input type="text" name="MIN" placeholder="Minutes played" required="required" />
+    	<input type="text" name="PTS" placeholder="Points per game" required="required" />
+    	<input type="text" name="FGM" placeholder="Field goals made" required="required" />
+    	<input type="text" name="FGA" placeholder="Field goal attempts" required="required" />
+    	<input type="text" name="FG%" placeholder="Field goal percent" required="required" />
+    	<input type="text" name="3Pmade" placeholder="3 points made" required="required" />
+    	<input type="text" name="3PA" placeholder="3 points attempts" required="required" />
+    	<input type="text" name="3p%" placeholder="3 points percent" required="required" />
+    	<input type="text" name="FTM" placeholder="Free throw made" required="required" />
+    	<input type="text" name="FTA" placeholder="Free throw attempts" required="required" />
+    	<input type="text" name="FT%" placeholder="Free throw percent" required="required" />
+    	<input type="text" name="OREB" placeholder="Offensive rebounds" required="required" />
+    	<input type="text" name="DREB" placeholder="Defensive rebounds" required="required" />
+    	<input type="text" name="REB" placeholder="Rebounds" required="required" />
+    	<input type="text" name="AST" placeholder="Assists" required="required" />
+    	<input type="text" name="STL" placeholder="Steals" required="required" />
+    	<input type="text" name="BLK" placeholder="Blocks" required="required" />
+    	<input type="text" name="TOV" placeholder="Turnovers" required="required" />
+
+      <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
